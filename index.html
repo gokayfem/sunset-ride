@@ -1,0 +1,12 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>Sunset Ride</title>
+<style>
+:root{color-scheme:dark;background:#000;font:14px system-ui}body{margin:0}video{position:fixed;inset:0;width:100%;height:100%;object-fit:contain}nav{position:fixed;top:max(12px,env(safe-area-inset-top));right:max(12px,env(safe-area-inset-right));display:flex;gap:8px}a,button{color:white;background:#161616cc;border:1px solid #ffffff50;border-radius:4px;padding:6px 10px;text-decoration:none;font:inherit;cursor:pointer}
+</style></head><body>
+<video aria-label="Sunset Ride cycling animation" autoplay muted loop playsinline controls><source src="ride-loop.mp4" type='video/mp4; codecs="hvc1"'><source src="preview.mp4" type="video/mp4"></video>
+<nav><a href="live.html">Live shader</a><button id="full" hidden>Full screen</button></nav>
+<script>
+const full=document.querySelector('#full'),video=document.querySelector('video');
+if(document.fullscreenEnabled){full.hidden=false;full.onclick=()=>document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen();document.onfullscreenchange=()=>full.textContent=document.fullscreenElement?'Exit full screen':'Full screen';}
+video.addEventListener('error',()=>{if(!video.src){video.src='preview.mp4';video.load();}});
+</script></body></html>
